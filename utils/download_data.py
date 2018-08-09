@@ -25,7 +25,7 @@ def download_dir(lock, idx, directories, list_file, destination_directory):
 
     file_path = os.path.join(DATASET_DIRECTORY, dir, list_file)
 
-    n_lines = (int)get_lines_number(file_path)/2
+    n_lines = get_lines_number(file_path)
 
     with lock:
         progress = tqdm(
