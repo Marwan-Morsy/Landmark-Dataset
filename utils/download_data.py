@@ -33,7 +33,7 @@ def download_dir(lock, idx, directories, list_file, destination_directory):
             position=idx,
             desc=dir,
         )
-
+    
     for line in open(file_path):
         line_data = line.split('\t')
         file_name = line_data[0]
@@ -74,10 +74,7 @@ def main():
     lock = threading.Lock()
 
     for i in range(n_directories):
-        if list_file == 'list_db.txt' and i > 500:
-            break
-        if list_file == 'list_test.txt' and i > 100:
-            break
+       
         pool.apply_async(download_dir, args=(
             lock, i, directories, list_file, destination_directory))
 
