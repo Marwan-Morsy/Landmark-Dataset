@@ -74,6 +74,10 @@ def main():
     lock = threading.Lock()
 
     for i in range(n_directories):
+        if list_file == 'list_db.txt' and i > 500:
+            break
+        if list_file == 'list_test.txt' and i > 100:
+            break
         pool.apply_async(download_dir, args=(
             lock, i, directories, list_file, destination_directory))
 
